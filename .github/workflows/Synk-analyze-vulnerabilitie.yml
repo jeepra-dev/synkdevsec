@@ -17,7 +17,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: SNYK_TOKEN
-        run: echo ${SNYK_TOKEN:0:4}
+        run: echo $SNYK_TOKEN
         env:
           SNYK_TOKEN: ${{ secrets.MY_SECRET }}
         
