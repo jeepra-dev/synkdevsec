@@ -16,10 +16,8 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: SNYK_TOKEN
-        run: echo $SNYK_TOKEN
-        env:
-          SNYK_TOKEN: ${{ secrets.MY_SECRET }}
+      - name: Test SNYK_TOKEN
+        run: echo "SNYK_TOKEN value: ${{ secrets.SNYK_TOKEN }}"
         
       - name: Run Snyk to check for vulnerabilities
         uses: snyk/actions/node@master
