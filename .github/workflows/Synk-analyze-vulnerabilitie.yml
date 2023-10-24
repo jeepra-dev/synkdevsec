@@ -6,8 +6,6 @@ jobs:
     permissions:
         contents: read
         security-events: write
-        workflows: write
-        repository_hooks: write
     steps:
       - uses: actions/checkout@master
       - name: Run Snyk to check for vulnerabilities
