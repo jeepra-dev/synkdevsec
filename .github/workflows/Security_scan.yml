@@ -1,0 +1,31 @@
+name: Security Scan
+
+on:
+  push:
+    branches:
+      - dev
+
+jobs:
+  security_scan:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      security-events: write
+      workflows: write
+      repository_hooks: write
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install Synk CLI
+        run: npm install -g synk
+
+      - name: Authenticate Synk
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+        run: snyk auth $SNYK_TOKEN
+
+      - name: Run Synk SAST
+        run: snyk test --sarif-file-output=snyk.sarif
