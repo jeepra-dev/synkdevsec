@@ -18,7 +18,7 @@ jobs:
 
       - name: Run Snyk to check for vulnerabilities
         uses: snyk/actions/node@master
-        #continue-on-error: true # To make sure that SARIF upload gets called
+        continue-on-error: true # To make sure that SARIF upload gets called
         env:
           SNYK_TOKEN: "9fa53977-9e63-4d66-9464-a995c748e93a"
         with:
