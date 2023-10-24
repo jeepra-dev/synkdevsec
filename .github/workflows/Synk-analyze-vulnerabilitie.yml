@@ -10,10 +10,6 @@ jobs:
         statuses: write
     steps:
       - uses: actions/checkout@master
-      - name: Authenticate Synk
-        env:
-          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
-        run: snyk auth $SNYK_TOKEN
       - name: Run Snyk to check for vulnerabilities
         uses: snyk/actions/node@master
         continue-on-error: true # To make sure that SARIF upload gets called
