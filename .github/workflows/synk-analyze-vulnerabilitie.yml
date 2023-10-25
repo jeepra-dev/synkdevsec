@@ -1,12 +1,8 @@
-name: Snyk ANALYZE
+name: synk_analyze
 on: 
     push:
         branches:
         - dev
-    workflow_run:
-        workflows: [Dast Analyze With Arachni]
-        types:
-        - completed
 jobs:
   security:
     runs-on: ubuntu-latest

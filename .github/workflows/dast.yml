@@ -1,12 +1,18 @@
 name: Dast Analyze With Arachni
+
 on:
-    workflow_run:
-        workflows: [Snyk ANALYZE]
-        types:
-        - completed
+  workflow_run:
+    workflows:
+      - synk_analyze
+    types:
+      - completed
+  push:
+    branches:
+      - dev
+
 jobs:
-    dast:
-        runs-on: ubuntu-latest
-        steps:
-            - uses: actions/checkout@master
+  dast:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
 
