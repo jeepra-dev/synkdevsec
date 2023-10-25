@@ -15,4 +15,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
+      - name: Install Arachni
+        run: |
+          docker pull arachni/arachni
+          docker run -d --name arachni arachni/arachni
+
 
