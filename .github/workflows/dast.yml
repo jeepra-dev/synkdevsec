@@ -1,0 +1,12 @@
+name: Dast Analyze With Arachni
+on:
+    workflow_run:
+      workflows: [Staging, Lab]
+      types:
+        - completed
+jobs:
+    security:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@master
+
