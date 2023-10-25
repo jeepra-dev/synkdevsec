@@ -1,0 +1,14 @@
+name: 
+on:
+  push:
+    branches: 
+      - dev
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:     
+    - name: OWASP ZAP Full Scan
+      uses: zaproxy/action-full-scan@v0.1.0
+      with:
+        target: "https://netpaie.spafnet.fr"
