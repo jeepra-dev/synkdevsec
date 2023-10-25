@@ -19,5 +19,11 @@ jobs:
         run: |
           docker pull arachni/arachni
           docker run -d --name arachni arachni/arachni
+          
+      - name: Analyze Arachni results
+        run: |
+          docker cp arachni:/path/to/arachni-report.afr .
+          docker exec arachni arachni_reporter arachni-report.afr --report=html:arachni-report.html
+
 
 
